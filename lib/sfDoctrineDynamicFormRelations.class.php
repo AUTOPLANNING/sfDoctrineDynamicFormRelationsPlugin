@@ -218,7 +218,7 @@ class sfDoctrineDynamicFormRelations extends sfForm
     {
       if (is_object($value))
       {
-        $child = $r->newInstanceArgs(array_merge(array($value), $config['arguments']));
+        $child = $r->newInstanceArgs(array_merge(array($value), array($config['arguments'])));
       }
       elseif (!empty($value['id']))
       {
@@ -235,7 +235,7 @@ class sfDoctrineDynamicFormRelations extends sfForm
         $object->fromArray($value);
         $form->getObject()->get($config['relation']->getAlias())->add($object);
 
-        $child = $r->newInstanceArgs(array_merge(array($object), $config['arguments']));
+        $child = $r->newInstanceArgs(array_merge(array($object), array($config['arguments'])));
       }
 
       // form must include PK widget
